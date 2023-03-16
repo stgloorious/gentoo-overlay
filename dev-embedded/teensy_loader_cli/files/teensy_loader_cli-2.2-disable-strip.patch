@@ -1,0 +1,39 @@
+diff --git a/Makefile b/Makefile
+index 2d1bda1..a5c1615 100644
+--- a/Makefile
++++ b/Makefile
+@@ -12,14 +12,14 @@ ifeq ($(OS), LINUX)  # also works on FreeBSD
+ CC ?= gcc
+ CFLAGS ?= -O2 -Wall
+ teensy_loader_cli: teensy_loader_cli.c
+-	$(CC) $(CFLAGS) $(CPPFLAGS) -s -DUSE_LIBUSB -o teensy_loader_cli teensy_loader_cli.c -lusb $(LDFLAGS)
++	$(CC) $(CFLAGS) $(CPPFLAGS) -DUSE_LIBUSB -o teensy_loader_cli teensy_loader_cli.c -lusb $(LDFLAGS)
+ 
+ 
+ else ifeq ($(OS), WINDOWS)
+ CC ?= i586-mingw32msvc-gcc
+ CFLAGS ?= -O2 -Wall
+ teensy_loader_cli.exe: teensy_loader_cli.c
+-	$(CC) $(CFLAGS) -s -DUSE_WIN32 -o teensy_loader_cli.exe teensy_loader_cli.c -lhid -lsetupapi -lwinmm
++	$(CC) $(CFLAGS) -DUSE_WIN32 -o teensy_loader_cli.exe teensy_loader_cli.c -lhid -lsetupapi -lwinmm
+ 
+ 
+ else ifeq ($(OS), MACOSX)
+@@ -27,7 +27,7 @@ ifeq ($(USE_LIBUSB), YES)
+ CC ?= gcc
+ CFLAGS ?= -O2 -Wall
+ teensy_loader_cli: teensy_loader_cli.c
+-	$(CC) $(CFLAGS) -s -DUSE_LIBUSB -DMACOSX -o teensy_loader_cli teensy_loader_cli.c -lusb -I /usr/local/include -L/usr/local/lib
++	$(CC) $(CFLAGS) -DUSE_LIBUSB -DMACOSX -o teensy_loader_cli teensy_loader_cli.c -lusb -I /usr/local/include -L/usr/local/lib
+ 	 
+ else
+ CC ?= gcc
+@@ -49,7 +49,7 @@ else ifeq ($(OS), BSD)  # works on NetBSD and OpenBSD
+ CC ?= gcc
+ CFLAGS ?= -O2 -Wall
+ teensy_loader_cli: teensy_loader_cli.c
+-	$(CC) $(CFLAGS) -s -DUSE_UHID -o teensy_loader_cli teensy_loader_cli.c
++	$(CC) $(CFLAGS) -DUSE_UHID -o teensy_loader_cli teensy_loader_cli.c
+ 
+ 
+ endif
