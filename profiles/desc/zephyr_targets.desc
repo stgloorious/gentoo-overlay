@@ -1,0 +1,17 @@
+# Copyright 1999-2022 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+
+# This file contains descriptions of ZEPHYR_TARGETS USE_EXPAND flags.
+
+# Keep it sorted.
+
+aarch64 - arm64 zephyr targets
+arc64 - arc64 zephyr targets
+arc - arc zephyr targets
+arm - arm zephyr targets
+microblazeel - microblazeel zephyr targets
+mips - mips zephyr targets
+nios2 - nios2 zephyr targets
+riscv64 - riscv64 zephyr targets
+sparc - sparc zephyr targets
+x86_64 - x86_64 zephyr targets
